@@ -1,0 +1,5 @@
+# input() & print()
+name = input("이름을 입력하세요 : ")
+age = int(input("나이를 입력하세요 : "))
+avg = float(input("학점을 입력하세요 : "))
+print("\"이름\" : %s\n\"나이\" : %d세\n\"학점\" : %.2f" % (name, age, avg), end=" ")
