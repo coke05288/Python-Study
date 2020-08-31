@@ -1,14 +1,16 @@
 # Dynamic Programming
-# Runtime Error O(n^2)
+# 64ms
 
 def bino(n, k):
     cache = [[-1]*(n+1) for i in range(n+1)]
+
     for i in range(n+1):
-        cache[i][0] = 1
-        cache[i][i] = 1
-    for i in range(1, n+1):
-        for j in range(1, j+1):
-            cache[i][j] = cache[i-1][j-1] + cache[i-1][j]
+        # 필요한 부분까지만 for 연산
+        for j in range(min(i, k)+1):
+            if j == 0 or j == i:
+                cache[i][j] = 1
+            else:
+                cache[i][j] = cache[i-1][j-1] + cache[i-1][j]
 
     return cache[n][k]
 
