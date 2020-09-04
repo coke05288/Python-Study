@@ -1,6 +1,7 @@
 temp_triangle = []
 check = []
 
+
 def recur(n, m):
     sum = 0
     if n == 0:
@@ -17,13 +18,13 @@ def recur(n, m):
             sum = temp_triangle[n][m] + max(recur(n-1, m-1), recur(n-1, m))
         temp_triangle[n][m] = sum
         check[n][m] = True
-
-    print(temp_triangle[n][m])
     return temp_triangle[n][m]
 
 
 def solution(triangle):
     answer = 0
+    global temp_triangle, check
+
     temp_triangle = list(map(list, triangle))
     check = [[False] * len(temp_triangle) for i in range(len(temp_triangle))]
 
@@ -37,6 +38,6 @@ def solution(triangle):
 
 if __name__ == "__main__":
     triangle = [[7], [3, 8], [8, 1, 0], [2, 7, 4, 4], [4, 5, 2, 6, 5]]
-    
+
     print(solution(triangle))
     print(temp_triangle)
