@@ -15,7 +15,7 @@ if __name__ == "__main__":
     wi = list(map(int, input().split()))
     dj = list(map(int, input().split()))
 
-    answer = [[0]*1 for _ in range(m)]
+    answer = [[]*1 for _ in range(m)]
 
     map_list = [[0]*n for _ in range(m)]
 
@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
         for j in dj :
             if j > 0 : 
-                check_answer = 0
+                check_answer = 0   
 
         if check_answer == 1 : 
             print(1)
@@ -58,12 +58,17 @@ if __name__ == "__main__":
                 check_start = 1
                 for j in range(len(map_list[i])):
                     if map_list[i][j] == 1 and check_start == 1:
-                        print(str(j+1) + " ", end='')
+                        answer[i].append(j+1) 
+                        # print(str(j+1) + " ", end='')
                         check_start -= 1
                     elif map_list[i][j] == 0:
                         check_start = 1
                     else :
                         continue
+            answer.sort()
+            for i in range(m):
+                for j in answer[i]:
+                    print(j,end=' ')
                 print()
 
         else:
